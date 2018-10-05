@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'WestmarchDatabase',
-        'USER': 'root',
-        'PASSWORD': 'S1c2o3t4t5',
+        'USER': 'WestmarchUser',
+        'PASSWORD': os.environ.get('DB_PASS'),
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
