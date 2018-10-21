@@ -54,9 +54,10 @@ class Session(models.Model):
 
 class TownCrier(models.Model):
     SessionID = models.ForeignKey(Session, on_delete=models.CASCADE, verbose_name="Game name")
-    # Link = models.CharField(max_length=255)
     Title = models.CharField(max_length=128)
     Description = models.TextField()
+    PublishDate = models.DateTimeField()
+
     def __str__(self):
         return self.Title
 
