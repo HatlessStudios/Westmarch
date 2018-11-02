@@ -1,14 +1,20 @@
 # Westmarch
 
-Helpers tool for running largescale tabletop RPGs
+Helpers tool for running largescale tabletop RPGs. Initially setup to assist the Exeter Games Society with running their Westmarches campaign on the island of Fennport, established in 2018.
 
-## Repository Setup
+## What Stack Are We Ising
 
-Contributors are to make a fork of the repository on their own personal account. In there you may develop any features you may wish. When a feature has been tested, rebase to the appropriate branch and push to the master repo. The group will then review the code changes and merge as neccesary.
+## How To Contribute
+
+Contributors are to make a fork of the repository on their own personal account. In there, you may develop any features you may wish. When a feature has been tested, please send us a merge request to the appropriate branch. The project leads will then review the updates and merge as neccesary.
 
 ## Features Checklist
 
 * Character Viewing
 * Inventory Management
 * Quest System (Tavern)
+* Economy Modelling
+* Item Name Generator
 
+
+Please let us know if you have any further comments, ideas, or criticisms.
