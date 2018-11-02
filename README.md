@@ -3,9 +3,9 @@
 Helpers tool for running large-scale tabletop RPGs. Initially setup to assist the Exeter Games Society with running their Westmarches campaign on the island of Fennport, established in 2018.
 
 ## What Stack Are We Using
-Database - MySQL
-Back-End - Django (Python Framework)
-Front-End - None, as of current.
+* Database - MySQL
+* Back-End - Django (Python Framework)
+* Front-End - None, as of current.
 
 ## How To Contribute
 
