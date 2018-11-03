@@ -106,3 +106,7 @@ venv.bak/
 #IntelliJ
 .idea/
 *.iml
+
+# VS Code
+vs_workspace.*
+.vscde/
