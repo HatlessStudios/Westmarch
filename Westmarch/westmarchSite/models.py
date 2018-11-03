@@ -3,12 +3,17 @@ from django.db import models
 # Create your models here.
 class Character(models.Model):
     CharName = models.CharField(max_length=40)
+    PartyID = models.ForeignKey("Party", on_delete=models.CASCADE)
+    PlayerID = models.ForeignKey("Player", on_delete= models.CASCADE)
     def __str__(self):
         return self.CharName
 
-class CharacterSession(models.Model):
-    CharacterID = models.ForeignKey(Character, on_delete=models.CASCADE)
-    SessionID = models.ForeignKey("Session", on_delete=models.CASCADE)
+class Party(models.Model):
+    Name = models.CharField(max_length=40)
+    GM = models.ForeignKey("GM", null=True, on_delete=models.SET_NULL)
+    Region = models.ForeignKey("Region", on_delete=models.CASCADE)
+    def __str__(self):
+        return self.Name
 
 class CharItem(models.Model):
     ItemID = models.ForeignKey("Item", on_delete=models.CASCADE)
