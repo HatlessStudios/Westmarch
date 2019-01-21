@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'westmarchSite/css/crier.css' %}" />
+<link rel="shortcut icon" href="{% static 'westmarchSite/favicon.png' %}" />
+<div class="main_information">
+{% for post in post_list %}
+    <h1><a href="{% url 'westmarchSite:crier_detail' post.id %}">{{ post.Title }}</a></h1>
+    <p class="date">{{ post.PublishDate }}</p>
+    <p class="post">{{ post.Description | linebreaksbr | truncatechars:400 }}</p>
+    <hr />
+{% endfor %}
+</div>
