@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'westmarchSite.apps.WestmarchsiteConfig',
-    'bootstrap4',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

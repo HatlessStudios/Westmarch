@@ -1,6 +1,0 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'westmarchSite/css/player_details.css' %}" />
-
-{% for party in parties %}
-    <p class="party_link"><a href="{% url 'westmarchSite:party_detail' party.id %}">{{party.Name}}</a> </p>
-{% endfor %}

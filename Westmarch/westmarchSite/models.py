@@ -1,23 +1,36 @@
 from django.db import models
+from enum import Enum
+
+# Enums
+CHARACTER_CLASSES = (
+    ('BARBARIAN', "Barbarian"),
+    ('BARD', "Bard"),
+    ('CLERIC', "Cleric"),
+    ('DRUID', "Druid"),
+    ('FIGHTER', "Fighter"),
+    ('MONK', "Monk"),
+    ('PALADIN', "Paladin"),
+    ('RANGER', "Ranger"),
+    ('ROGUE', "Rogue"),
+    ('SORCERER', "Sorcerer"),
+    ('WARLOCK', "Warlock"),
+    ('WIZARD', "Wizard"),
+)
 
 # Create your models here.
 class Character(models.Model):
     CharName = models.CharField(max_length=40)
-    PartyID = models.ForeignKey("Party", on_delete=models.CASCADE)
     PlayerID = models.ForeignKey("Player", on_delete= models.CASCADE)
+    Class = models.CharField(max_length=20, choices=CHARACTER_CLASSES)
+    Level = models.PositiveSmallIntegerField(default=1)
+    BioShort = models.TextField(max_length=120, blank=True, null=True, verbose_name="Short description")
+    Bio = models.TextField(null=True, blank=True, verbose_name="Full Bio")
     def __str__(self):
         return self.CharName
 
-class Party(models.Model):
-    Name = models.CharField(max_length=40)
-    GM = models.ForeignKey("GM", null=True, on_delete=models.SET_NULL)
-    Region = models.ForeignKey("Region", on_delete=models.CASCADE)
-    def __str__(self):
-        return self.Name
-
 class CharItem(models.Model):
     ItemID = models.ForeignKey("Item", on_delete=models.CASCADE)
-    CharID = models.ForeignKey(Character, on_delete=models.CASCADE)
+    CharID = models.ForeignKey("Character", on_delete=models.CASCADE)
 
 class City(models.Model):
     Name = models.CharField(max_length=40)
@@ -26,7 +39,7 @@ class City(models.Model):
         return self.Name
 
 class CityItem(models.Model):
-    CityID = models.ForeignKey(City, on_delete=models.CASCADE)
+    CityID = models.ForeignKey("City", on_delete=models.CASCADE)
     ItemID = models.ForeignKey("Item", on_delete=models.CASCADE)
 
 class GM(models.Model):
@@ -53,7 +66,10 @@ class Region(models.Model):
 
 class Session(models.Model):
     Description = models.CharField(max_length=255)
-    RegionID = models.ForeignKey(Region, on_delete=models.CASCADE)
+    RegionID = models.ForeignKey("Region", on_delete=models.CASCADE)
+    Time = models.DateTimeField()
+    GM = models.ForeignKey("GM", null=True, on_delete=models.SET_NULL)
+
     def __str__(self):
         return self.Description
 
