@@ -1,0 +1,51 @@
+{% extends 'westmarchSite/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row justify-content-md-center">
+        <div class="col-sm-auto">
+            <h1>Characters</h1>
+        </div>
+    </div>
+    <div class="row justify-content-md-center align-items-center">
+        <div class="col-md-auto filter-label">
+            Level:
+        </div>
+        <div class="col-md-6">
+            <div class="slider">
+                <div id="range-slider"></div>
+            </div>
+        </div>
+        <div class="col-md-auto offset-xl-1 filter-label">
+            Order by:
+        </div>
+        <div class="col-md-auto filter-label">
+            <form class="empty_form" method="GET">
+                <select class="form-control" id="sort_select" onchange="this.form.submit();" name="sort">
+                    <option value="Level">Level</option>
+                    <option value="CharName">Name</option>
+                    <option value="Class">Class</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        {% for character in characters %}
+            <div class="col-xl-4 d-flex align-items-strech" hidden="false" data-level="{{ character.Level }}">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <div>
+                            <h5 class="card-title">
+                                {{ character.CharName }}
+                                <img class="card-img-top class-logo" src="{% static 'westmarchSite/img/Paladin.png' %}" title="paladin" />
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Level: {{ character.Level }}</h6>
+                            <p class="card-text">{{ character.BioShort }}</p>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary bottom-button" style="align-self: flex-start;">View profile</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

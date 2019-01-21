@@ -1,0 +1,133 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700";
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: rgb(33, 37, 41);
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.bottom-button {
+    margin-top: 0.5rem;
+}
+
+.class-logo {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    padding-right: 0;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7ecc;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+#main-content {
+    font-family: 'Roboto';
+}
+
+div[hidden="true"] {
+    visibility: collapse;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+div[hidden="false"] {
+    visibility: unset;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.slider {
+    padding: 50px 20px 20px 20px;
+}
+
+.filter-label {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.empty_form {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
